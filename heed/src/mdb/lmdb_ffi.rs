@@ -114,7 +114,7 @@ pub unsafe fn mdb_cursor_put(
     flags: ::libc::c_uint,
 ) -> ::libc::c_int {
 
-    if from_val_ref(key) == b"toi" {
+    if from_val_ref(key) == b"and" {
         eprintln!("wow");
     }
     let result = ffi::mdb_cursor_put(cursor, key, data, flags);
