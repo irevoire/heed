@@ -115,8 +115,8 @@ where
         match result {
             Ok(Some((key, data))) => {
                 let must_be_returned = match &self.end_bound {
-                    Bound::Included(end) => key <= end,
-                    Bound::Excluded(end) => key < end,
+                    Bound::Included(end) => key <= end.as_slice(),
+                    Bound::Excluded(end) => key < end.as_slice(),
                     Bound::Unbounded => true,
                 };
 
@@ -150,8 +150,8 @@ where
         match result {
             Ok(Some((key, data))) => {
                 let must_be_returned = match &self.start_bound {
-                    Bound::Included(start) => key >= start,
-                    Bound::Excluded(start) => key > start,
+                    Bound::Included(start) => key >= start.as_slice(),
+                    Bound::Excluded(start) => key > start.as_slice(),
                     Bound::Unbounded => true,
                 };
 
@@ -253,8 +253,8 @@ where
         match result {
             Ok(Some((key, data))) => {
                 let must_be_returned = match self.end_bound {
-                    Bound::Included(ref end) => key <= end,
-                    Bound::Excluded(ref end) => key < end,
+                    Bound::Included(ref end) => key <= end.as_slice(),
+                    Bound::Excluded(ref end) => key < end.as_slice(),
                     Bound::Unbounded => true,
                 };
 
@@ -288,8 +288,8 @@ where
         match result {
             Ok(Some((key, data))) => {
                 let must_be_returned = match &self.start_bound {
-                    Bound::Included(start) => key >= start,
-                    Bound::Excluded(start) => key > start,
+                    Bound::Included(start) => key >= start.as_slice(),
+                    Bound::Excluded(start) => key > start.as_slice(),
                     Bound::Unbounded => true,
                 };
 
@@ -377,8 +377,8 @@ where
         match result {
             Ok(Some((key, data))) => {
                 let must_be_returned = match &self.start_bound {
-                    Bound::Included(start) => key >= start,
-                    Bound::Excluded(start) => key > start,
+                    Bound::Included(start) => key >= start.as_slice(),
+                    Bound::Excluded(start) => key > start.as_slice(),
                     Bound::Unbounded => true,
                 };
 
@@ -414,8 +414,8 @@ where
         match result {
             Ok(Some((key, data))) => {
                 let must_be_returned = match &self.end_bound {
-                    Bound::Included(end) => key <= end,
-                    Bound::Excluded(end) => key < end,
+                    Bound::Included(end) => key <= end.as_slice(),
+                    Bound::Excluded(end) => key < end.as_slice(),
                     Bound::Unbounded => true,
                 };
 
@@ -517,8 +517,8 @@ where
         match result {
             Ok(Some((key, data))) => {
                 let must_be_returned = match &self.start_bound {
-                    Bound::Included(start) => key >= start,
-                    Bound::Excluded(start) => key > start,
+                    Bound::Included(start) => key >= start.as_slice(),
+                    Bound::Excluded(start) => key > start.as_slice(),
                     Bound::Unbounded => true,
                 };
 
@@ -554,8 +554,8 @@ where
         match result {
             Ok(Some((key, data))) => {
                 let must_be_returned = match &self.end_bound {
-                    Bound::Included(end) => key <= end,
-                    Bound::Excluded(end) => key < end,
+                    Bound::Included(end) => key <= end.as_slice(),
+                    Bound::Excluded(end) => key < end.as_slice(),
                     Bound::Unbounded => true,
                 };
 

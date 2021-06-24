@@ -205,18 +205,24 @@ impl<'txn> RwCursor<'txn> {
     }
 
     pub fn put_current(&mut self, key: &[u8], data: &[u8]) -> Result<bool> {
-        let mut key_val = unsafe { crate::into_val(&key) };
-        let mut data_val = unsafe { crate::into_val(&data) };
+        let key2 = key.to_vec();
+        let truc = key == b"toi";
+        if truc {
+            dbg!(key);
+        }
+        let key_val = unsafe { &mut crate::into_val(&key) };
+        let data_val = unsafe { &mut crate::into_val(&data) };
 
         // Modify the pointed data
         let result = unsafe {
             mdb_result(ffi::mdb_cursor_put(
                 self.cursor.cursor,
-                &mut key_val,
-                &mut data_val,
+                key_val,
+                data_val,
                 ffi::MDB_CURRENT,
             ))
         };
+        dbg!(key2);
 
         match result {
             Ok(()) => Ok(true),

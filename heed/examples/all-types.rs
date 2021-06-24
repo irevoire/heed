@@ -149,5 +149,9 @@ fn main() -> Result<(), Box<dyn Error>> {
     println!("deleted: {:?}, {:?}", deleted, rets);
     wtxn.commit()?;
 
+    println!("before wait");
+    env.prepare_for_closing().wait();
+    println!("after wait");
+
     Ok(())
 }
