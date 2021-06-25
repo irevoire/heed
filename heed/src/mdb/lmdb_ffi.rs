@@ -172,7 +172,7 @@ pub mod cursor_op {
 
 pub unsafe fn into_val(value: &[u8]) -> ffi::MDB_val {
     ffi::MDB_val {
-        mv_data: std::mem::transmute(value.as_ptr()),
+        mv_data: value.as_ptr() as *mut libc::c_void,
         mv_size: value.len(),
     }
 }
